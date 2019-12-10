@@ -80,7 +80,8 @@ public class InventoryService {
 
     BigDecimal inventoryTotalValue = upcSummaryList.parallelStream()
         .reduce(BigDecimal.valueOf(1),
-            (partialResult, x) -> partialResult.multiply(x.getTotalValue()), (x, y) -> x.add(y));
+            (partialResult, x) -> partialResult.multiply(x.getTotalValue()),
+            (x, y) -> x.multiply(y));
 
     return new InventorySummary(upcSummaryList, inventoryTotalValue);
   }
