@@ -78,9 +78,11 @@ public class InventoryService {
         .map(inventoryItem -> this.buildUpcSummary(inventoryItem, upcToBooksMap))
         .collect(Collectors.toList());
 
+    BigDecimal decimalOne = BigDecimal.valueOf(1);
     BigDecimal inventoryTotalValue = upcSummaryList.parallelStream()
-        .reduce(BigDecimal.valueOf(1),
-            (partialResult, x) -> partialResult.multiply(x.getTotalValue()),
+        .reduce(decimalOne,
+            (partialResult, x) -> partialResult.multiply(
+                Optional.ofNullable(x.getTotalValue()).orElse(decimalOne)),
             (x, y) -> x.multiply(y));
 
     return new InventorySummary(upcSummaryList, inventoryTotalValue);
