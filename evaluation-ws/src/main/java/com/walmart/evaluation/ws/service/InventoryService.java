@@ -26,9 +26,10 @@ public class InventoryService {
 
   /**
    * Constructor of class InventoryService.
-   * @param restTemplate  Rest Template
+   *
+   * @param restTemplate   Rest Template
    * @param inventoryWsUrl url of inventory WS
-   * @param bookWsUrl url of book WS
+   * @param bookWsUrl      url of book WS
    */
   public InventoryService(RestTemplate restTemplate, String inventoryWsUrl, String bookWsUrl) {
     this.restTemplate = restTemplate;
@@ -38,6 +39,7 @@ public class InventoryService {
 
   /**
    * Get inventory details of the items.
+   *
    * @return {@code List<InventoryItem>}
    */
   public List<InventoryItem> getInventory() {
@@ -50,6 +52,7 @@ public class InventoryService {
 
   /**
    * Get all books details.
+   *
    * @return {@code List<Book>}
    */
   public List<Book> getBooks() {
@@ -61,6 +64,7 @@ public class InventoryService {
 
   /**
    * Get inventory summary.
+   *
    * @return {@code InventorySummary}
    */
   public InventorySummary getInventorySummary() {
@@ -94,5 +98,3 @@ public class InventoryService {
     return new UpcSummary(book.getUpc(), quantity, totalValue);
   }
 }
-//java -jar inventory-service-0.0.1-SNAPSHOT.jar --server.port=8081
-//java -jar book-service-0.0.1-SNAPSHOT.jar  --server.port=8082
