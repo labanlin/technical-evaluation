@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} - %-5level  [%3.5t] %-40.40logger{1.} : %m%n</Pattern>
+        </layout>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="Console"/>
+    </root>
+
+    <logger name="org.springframework" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+    <logger name="com.walmart.evaluation" level="INFO" additivity="false">
+        <appender-ref ref="Console"/>
+    </logger>
+
+</configuration>

@@ -1,0 +1,8 @@
+server:
+  port: 8080
+  servlet:
+    contextPath: /evaluation
+ws:
+  url:
+    inventory: http://localhost:8081
+    books: http://localhost:8082
